@@ -31,19 +31,19 @@
             btnOperar = new Button();
             btnCerrar = new Button();
             btnLimpiar = new Button();
-            txbPrimerOperando = new TextBox();
+            txtPrimerOperando = new TextBox();
             lblPrimerOperando = new Label();
             lblSegundoOperando = new Label();
-            txbSegundoOperando = new TextBox();
+            txtSegundoOperando = new TextBox();
             lblOperar = new Label();
             lblResultado = new Label();
-            rbBinario = new RadioButton();
-            rbDecimal = new RadioButton();
-            gbSistemas = new GroupBox();
-            cbOperadores = new ComboBox();
-            lsbHistorial = new ListBox();
+            rdbBinario = new RadioButton();
+            rdbDecimal = new RadioButton();
+            grpSistema = new GroupBox();
+            cmbOperacion = new ComboBox();
+            lstHistorial = new ListBox();
             lblHistorial = new Label();
-            gbSistemas.SuspendLayout();
+            grpSistema.SuspendLayout();
             SuspendLayout();
             // 
             // btnOperar
@@ -82,14 +82,14 @@
             btnLimpiar.UseVisualStyleBackColor = true;
             btnLimpiar.Click += btnLimpiar_Click;
             // 
-            // txbPrimerOperando
+            // txtPrimerOperando
             // 
-            txbPrimerOperando.Font = new Font("Segoe UI Light", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            txbPrimerOperando.Location = new Point(12, 417);
-            txbPrimerOperando.Name = "txbPrimerOperando";
-            txbPrimerOperando.PlaceholderText = "1,2,3...";
-            txbPrimerOperando.Size = new Size(238, 43);
-            txbPrimerOperando.TabIndex = 5;
+            txtPrimerOperando.Font = new Font("Segoe UI Light", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            txtPrimerOperando.Location = new Point(12, 417);
+            txtPrimerOperando.Name = "txtPrimerOperando";
+            txtPrimerOperando.PlaceholderText = "1,2,3...";
+            txtPrimerOperando.Size = new Size(238, 43);
+            txtPrimerOperando.TabIndex = 5;
             // 
             // lblPrimerOperando
             // 
@@ -113,15 +113,15 @@
             lblSegundoOperando.TabIndex = 8;
             lblSegundoOperando.Text = "Segundo operador:";
             // 
-            // txbSegundoOperando
+            // txtSegundoOperando
             // 
-            txbSegundoOperando.Font = new Font("Segoe UI Light", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            txbSegundoOperando.Location = new Point(528, 417);
-            txbSegundoOperando.Name = "txbSegundoOperando";
-            txbSegundoOperando.PlaceholderText = "1,2,3...";
-            txbSegundoOperando.Size = new Size(216, 43);
-            txbSegundoOperando.TabIndex = 7;
-            txbSegundoOperando.TextChanged += textBox2_TextChanged;
+            txtSegundoOperando.Font = new Font("Segoe UI Light", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            txtSegundoOperando.Location = new Point(528, 417);
+            txtSegundoOperando.Name = "txtSegundoOperando";
+            txtSegundoOperando.PlaceholderText = "1,2,3...";
+            txtSegundoOperando.Size = new Size(216, 43);
+            txtSegundoOperando.TabIndex = 7;
+            txtSegundoOperando.TextChanged += textBox2_TextChanged;
             // 
             // lblOperar
             // 
@@ -142,66 +142,67 @@
             lblResultado.ForeColor = SystemColors.ActiveCaptionText;
             lblResultado.Location = new Point(38, 63);
             lblResultado.Name = "lblResultado";
-            lblResultado.Size = new Size(0, 46);
+            lblResultado.Size = new Size(175, 46);
             lblResultado.TabIndex = 10;
+            lblResultado.Text = "Resultado:";
             // 
-            // rbBinario
+            // rdbBinario
             // 
-            rbBinario.AutoSize = true;
-            rbBinario.Location = new Point(156, 42);
-            rbBinario.Name = "rbBinario";
-            rbBinario.Size = new Size(74, 25);
-            rbBinario.TabIndex = 11;
-            rbBinario.TabStop = true;
-            rbBinario.Text = "Binario";
-            rbBinario.UseVisualStyleBackColor = true;
-            rbBinario.CheckedChanged += rdbBinario_CheckedChanged;
+            rdbBinario.AutoSize = true;
+            rdbBinario.Location = new Point(156, 42);
+            rdbBinario.Name = "rdbBinario";
+            rdbBinario.Size = new Size(74, 25);
+            rdbBinario.TabIndex = 11;
+            rdbBinario.TabStop = true;
+            rdbBinario.Text = "Binario";
+            rdbBinario.UseVisualStyleBackColor = true;
+            rdbBinario.CheckedChanged += rdbBinario_CheckedChanged;
             // 
-            // rbDecimal
+            // rdbDecimal
             // 
-            rbDecimal.AutoSize = true;
-            rbDecimal.Location = new Point(6, 42);
-            rbDecimal.Name = "rbDecimal";
-            rbDecimal.Size = new Size(81, 25);
-            rbDecimal.TabIndex = 12;
-            rbDecimal.TabStop = true;
-            rbDecimal.Text = "Decimal";
-            rbDecimal.UseVisualStyleBackColor = true;
-            rbDecimal.CheckedChanged += rdbDecimal_CheckedChanged;
+            rdbDecimal.AutoSize = true;
+            rdbDecimal.Location = new Point(6, 42);
+            rdbDecimal.Name = "rdbDecimal";
+            rdbDecimal.Size = new Size(81, 25);
+            rdbDecimal.TabIndex = 12;
+            rdbDecimal.TabStop = true;
+            rdbDecimal.Text = "Decimal";
+            rdbDecimal.UseVisualStyleBackColor = true;
+            rdbDecimal.CheckedChanged += rdbDecimal_CheckedChanged;
             // 
-            // gbSistemas
+            // grpSistema
             // 
-            gbSistemas.Controls.Add(rbBinario);
-            gbSistemas.Controls.Add(rbDecimal);
-            gbSistemas.Font = new Font("Segoe UI Light", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            gbSistemas.Location = new Point(256, 261);
-            gbSistemas.Name = "gbSistemas";
-            gbSistemas.Size = new Size(245, 88);
-            gbSistemas.TabIndex = 13;
-            gbSistemas.TabStop = false;
-            gbSistemas.Text = "Representar resultado en:";
+            grpSistema.Controls.Add(rdbBinario);
+            grpSistema.Controls.Add(rdbDecimal);
+            grpSistema.Font = new Font("Segoe UI Light", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            grpSistema.Location = new Point(256, 261);
+            grpSistema.Name = "grpSistema";
+            grpSistema.Size = new Size(245, 88);
+            grpSistema.TabIndex = 13;
+            grpSistema.TabStop = false;
+            grpSistema.Text = "Representar resultado en:";
             // 
-            // cbOperadores
+            // cmbOperacion
             // 
-            cbOperadores.BackColor = SystemColors.InactiveBorder;
-            cbOperadores.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbOperadores.Font = new Font("Segoe UI Light", 19F, FontStyle.Regular, GraphicsUnit.Point);
-            cbOperadores.ForeColor = Color.Red;
-            cbOperadores.FormattingEnabled = true;
-            cbOperadores.Location = new Point(292, 417);
-            cbOperadores.Name = "cbOperadores";
-            cbOperadores.Size = new Size(194, 43);
-            cbOperadores.TabIndex = 14;
-            cbOperadores.SelectedIndexChanged += comboBoxOperadores_SelectedIndexChanged;
+            cmbOperacion.BackColor = SystemColors.InactiveBorder;
+            cmbOperacion.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbOperacion.Font = new Font("Segoe UI Light", 19F, FontStyle.Regular, GraphicsUnit.Point);
+            cmbOperacion.ForeColor = Color.Red;
+            cmbOperacion.FormattingEnabled = true;
+            cmbOperacion.Location = new Point(292, 417);
+            cmbOperacion.Name = "cmbOperacion";
+            cmbOperacion.Size = new Size(194, 43);
+            cmbOperacion.TabIndex = 14;
+            cmbOperacion.SelectedIndexChanged += comboBoxOperadores_SelectedIndexChanged;
             // 
-            // lsbHistorial
+            // lstHistorial
             // 
-            lsbHistorial.FormattingEnabled = true;
-            lsbHistorial.ItemHeight = 15;
-            lsbHistorial.Location = new Point(785, 143);
-            lsbHistorial.Name = "lsbHistorial";
-            lsbHistorial.Size = new Size(260, 364);
-            lsbHistorial.TabIndex = 15;
+            lstHistorial.FormattingEnabled = true;
+            lstHistorial.ItemHeight = 15;
+            lstHistorial.Location = new Point(785, 143);
+            lstHistorial.Name = "lstHistorial";
+            lstHistorial.Size = new Size(260, 364);
+            lstHistorial.TabIndex = 15;
             // 
             // lblHistorial
             // 
@@ -220,15 +221,15 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1073, 519);
             Controls.Add(lblHistorial);
-            Controls.Add(lsbHistorial);
-            Controls.Add(cbOperadores);
-            Controls.Add(gbSistemas);
+            Controls.Add(lstHistorial);
+            Controls.Add(cmbOperacion);
+            Controls.Add(grpSistema);
             Controls.Add(lblResultado);
             Controls.Add(lblOperar);
             Controls.Add(lblSegundoOperando);
-            Controls.Add(txbSegundoOperando);
+            Controls.Add(txtSegundoOperando);
             Controls.Add(lblPrimerOperando);
-            Controls.Add(txbPrimerOperando);
+            Controls.Add(txtPrimerOperando);
             Controls.Add(btnLimpiar);
             Controls.Add(btnCerrar);
             Controls.Add(btnOperar);
@@ -236,13 +237,14 @@
             ForeColor = SystemColors.ActiveCaptionText;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FrmCalculadora";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Calculadora Alumno: Joaquin Quiroga";
             FormClosing += FormView_FormClosing;
             Load += FormView_Load;
-            gbSistemas.ResumeLayout(false);
-            gbSistemas.PerformLayout();
+            grpSistema.ResumeLayout(false);
+            grpSistema.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -252,17 +254,17 @@
         private Button btnOperar;
         private Button btnCerrar;
         private Button btnLimpiar;
-        private TextBox txbPrimerOperando;
+        private TextBox txtPrimerOperando;
         private Label lblPrimerOperando;
         private Label lblSegundoOperando;
-        private TextBox txbSegundoOperando;
+        private TextBox txtSegundoOperando;
         private Label lblOperar;
         private Label lblResultado;
-        private RadioButton rbBinario;
-        private RadioButton rbDecimal;
-        private GroupBox gbSistemas;
-        private ComboBox cbOperadores;
-        private ListBox lsbHistorial;
+        private RadioButton rdbBinario;
+        private RadioButton rdbDecimal;
+        private GroupBox grpSistema;
+        private ComboBox cmbOperacion;
+        private ListBox lstHistorial;
         private Label lblHistorial;
     }
 }

@@ -1,1 +1,4 @@
-﻿public enum ESistemas { Decimal,Binario}
+﻿namespace Enum
+{
+    public enum ESistemas { Decimal, Binario }
+}
