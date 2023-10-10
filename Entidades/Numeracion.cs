@@ -5,7 +5,7 @@ namespace Entidades
 {
     public abstract class Numeracion
     {
-        protected static string msgError;
+        protected static string msgError = string.Empty;
         protected string valor = string.Empty;
 
         public string Valor 
@@ -14,7 +14,7 @@ namespace Entidades
             {
                 if (!EsNumeracionValida(this.valor))
                 {
-                    return msgError;
+                    return Numeracion.msgError;
                 }
                 else
                 {
@@ -26,7 +26,7 @@ namespace Entidades
         internal abstract double ValorNumerico { get; }
         static Numeracion()
         {
-            msgError = "Numero Invalido";
+            Numeracion.msgError = "Numero Invalido";
         }
 
         protected Numeracion(string valor)
@@ -37,7 +37,7 @@ namespace Entidades
 
         protected virtual bool EsNumeracionValida(string valor)
         {
-            return valor is not null && valor.Length >0;
+            return valor is not null && valor.Length > 0;
         }
         private void InicializarValores(string value)
         {
@@ -50,11 +50,11 @@ namespace Entidades
                 this.valor = msgError;
             }
         }
-        public static bool operator == (Numeracion a, Numeracion b)
+        public static bool operator == (Numeracion? a, Numeracion? b)
         {
-            return a is not null && b is not null && a.ToString() == b.ToString();
+            return a is not null && b is not null && a.GetType() == b.GetType();
         }
-        public static bool operator !=(Numeracion a, Numeracion b)
+        public static bool operator !=(Numeracion? a, Numeracion? b)
         { 
             return !(a == b);
         }

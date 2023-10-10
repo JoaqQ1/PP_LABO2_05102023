@@ -20,19 +20,23 @@ namespace TrabajoIngegrador
             calculadora.SegundoOperando = this.GetOperador(this.txtSegundoOperando.Text);
             operador = (char)this.cmbOperacion.SelectedItem;
             this.calculadora.Calcular(operador);
-            this.calculadora.ActualizaHistorialDeOperaciones(operador)
-            ;
-            this.lblResultado.Text = $"Resultado:{this.calculadora.Resultado.Valor}";
+            this.calculadora.ActualizaHistorialDeOperaciones(operador);
+            this.lblResultado.Text = $"Resultado:{this.calculadora.Resultado?.Valor}";
             this.MostrarHistorial();
 
         }
         private Numeracion GetOperador(string valor)
-        {
+         {
+            SistemaDecimal aux = valor;
             if (Calculadora.Sistema == ESistemas.Binario)
             {
-                return new SistemaBinario(valor);
+                Numeracion auxiBin = aux.CambiarSistemaDeNumeracion(ESistemas.Binario);
+                return new SistemaBinario(auxiBin.Valor);
             }
-            return new SistemaDecimal(valor);
+            else
+            {
+                return new SistemaDecimal(valor);
+            }
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)

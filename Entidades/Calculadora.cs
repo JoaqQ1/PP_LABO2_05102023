@@ -30,18 +30,18 @@ namespace Entidades
 
         public Calculadora()
         {
-            operaciones = new List<string>();
+            this.operaciones = new List<string>();
         }
         public Calculadora(string nombreAlumno) : this()
         {
             NombreAlumno = nombreAlumno;
         }
+
         public void Calcular()
         {
             double result = double.MinValue;
             if (PrimerOperando == SegundoOperando)
-                result = PrimerOperando.ValorNumerico + SegundoOperando.ValorNumerico;
-            
+                result = PrimerOperando.ValorNumerico + SegundoOperando.ValorNumerico;            
             this.resultado = MapeaResultado(result);
 
         }
@@ -57,14 +57,14 @@ namespace Entidades
 
                         break;
                     case '-':
-                        result = PrimerOperando.ValorNumerico + SegundoOperando.ValorNumerico;
+                        result = PrimerOperando.ValorNumerico - SegundoOperando.ValorNumerico;
                         break;
                     case '*':
-                        result = PrimerOperando.ValorNumerico + SegundoOperando.ValorNumerico;
+                        result = PrimerOperando.ValorNumerico * SegundoOperando.ValorNumerico;
                         break;
                     case '/':
                         if(SegundoOperando.ValorNumerico != 0)
-                            result = PrimerOperando.ValorNumerico + SegundoOperando.ValorNumerico;
+                            result = PrimerOperando.ValorNumerico / SegundoOperando.ValorNumerico;
                         break;
                 }
             }
@@ -72,14 +72,15 @@ namespace Entidades
         }
         private Numeracion MapeaResultado(double valor)
         {
-            return new SistemaDecimal(valor.ToString()).CambiarSistemaDeNumeracion(Sistema);
+            SistemaDecimal aux = new SistemaDecimal(valor.ToString());
+            return aux.CambiarSistemaDeNumeracion(Sistema);
         }
 
         public void ActualizaHistorialDeOperaciones(char operador)
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"Sistemas {Sistema.ToString()}");
-            sb.Append($"{PrimerOperando.ValorNumerico}{operador}{SegundoOperando.ValorNumerico}={Resultado.ValorNumerico}");
+            sb.AppendLine($"Sistemas {Sistema.ToString()} ");
+            sb.Append($"{PrimerOperando.ValorNumerico}{operador}{SegundoOperando.ValorNumerico}={Resultado.Valor}");
             Operaciones.Add(sb.ToString());
         }
         public void EliminarHistorialDeOperaciones()

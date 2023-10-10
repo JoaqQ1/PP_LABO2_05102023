@@ -17,7 +17,7 @@ namespace Entidades
         {
             get
             {                
-                return double.Parse(Valor);
+                return (double)this.CambiarSistemaDeNumeracion(ESistemas.Decimal);
             }
         }
 
@@ -30,7 +30,7 @@ namespace Entidades
 
         protected override bool EsNumeracionValida(string valor)
         {
-            return base.EsNumeracionValida(valor) && EsSistemaBinarioValido(valor);
+            return base.EsNumeracionValida(valor) && EsSistemaBinarioValido(valor);//==> Como hacer para inicializarlo y que sea un decimal? 
         }
 
         private bool EsSistemaBinarioValido(string valor)
@@ -52,7 +52,19 @@ namespace Entidades
 
             if(Valor != msgError)
             {
-                return new SistemaDecimal(Valor);
+                double decimalResult = 0;
+                double binaryBase = 1;
+
+                for (int i = valor.Length - 1; i >= 0; i--)
+                {
+                    if (valor[i] == '1')
+                    {
+                        decimalResult += binaryBase;
+                    }
+
+                    binaryBase *= 2;
+                }                
+                return new SistemaDecimal(decimalResult.ToString());
             }
             else
             {

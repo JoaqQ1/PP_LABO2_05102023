@@ -12,3 +12,7 @@ C:\Users\JOAQUÍN QUIROGA\Project\Parcial\Parcial\obj\Debug\net6.0\refint\Parcia
 C:\Users\JOAQUÍN QUIROGA\Project\Parcial\Parcial\obj\Debug\net6.0\Parcial.pdb
 C:\Users\JOAQUÍN QUIROGA\Project\Parcial\Parcial\obj\Debug\net6.0\Parcial.genruntimeconfig.cache
 C:\Users\JOAQUÍN QUIROGA\Project\Parcial\Parcial\obj\Debug\net6.0\ref\Parcial.dll
+C:\Users\JOAQUÍN QUIROGA\Project\Parcial\Parcial\bin\Debug\net6.0\Entidades.dll
+C:\Users\JOAQUÍN QUIROGA\Project\Parcial\Parcial\bin\Debug\net6.0\Entidades.pdb
+C:\Users\JOAQUÍN QUIROGA\Project\Parcial\Parcial\obj\Debug\net6.0\Parcial.csproj.AssemblyReference.cache
+C:\Users\JOAQUÍN QUIROGA\Project\Parcial\Parcial\obj\Debug\net6.0\Parcial.csproj.CopyComplete

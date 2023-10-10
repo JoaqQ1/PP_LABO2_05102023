@@ -28,8 +28,13 @@ namespace Entidades
         public override Numeracion CambiarSistemaDeNumeracion(ESistemas sistema)
         {
             if (sistema == ESistemas.Decimal)
+            {
                 return this;
-            return this.DecimalABinario();
+            }
+            else
+            {
+                return this.DecimalABinario();
+            }
         }
 
         protected override bool EsNumeracionValida(string valor)
